@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8164.2" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8135.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CustomDesignableExample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,101 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your current level of awesomeness:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Noa-MU-hU6">
+                                <rect key="frame" x="20" y="248" width="560" height="20"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="QDX-cr-AOi" customClass="RoundedImageView" customModule="CustomDesignableExample">
+                                <rect key="frame" x="210" y="44" width="180" height="180"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="Td2-Ou-6Tx"/>
+                                    <constraint firstAttribute="height" constant="180" id="rIV-nT-S6W"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="myImage"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="44"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="strokeWidth">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="completed">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="strokeColor">
+                                        <color key="value" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfK-dW-Jxk">
+                                <rect key="frame" x="171" y="431" width="100" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="dUf-uD-A3Q"/>
+                                    <constraint firstAttribute="height" constant="30" id="v6l-U1-Nyw"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Increase">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="increaseAwesomeness:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DGo-ZJ-wRo"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nwn-It-eMY">
+                                <rect key="frame" x="171" y="276" width="265" height="147"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="265" id="5DV-f0-dIY"/>
+                                    <constraint firstAttribute="height" constant="147" id="rD9-3B-C9t"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="72"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OoL-e0-fCC">
+                                <rect key="frame" x="336" y="431" width="100" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Decrease">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="decreaseAwesomeness:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wng-4N-lgL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93426452020202022" green="0.93426452020202022" blue="0.93426452020202022" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="QDX-cr-AOi" secondAttribute="centerX" id="3A2-JW-rUT"/>
+                            <constraint firstItem="Noa-MU-hU6" firstAttribute="top" secondItem="QDX-cr-AOi" secondAttribute="bottom" constant="24" id="AQe-R7-buZ"/>
+                            <constraint firstItem="OoL-e0-fCC" firstAttribute="top" secondItem="Nwn-It-eMY" secondAttribute="bottom" constant="8" id="Qzi-iW-dWt"/>
+                            <constraint firstItem="OoL-e0-fCC" firstAttribute="trailing" secondItem="Nwn-It-eMY" secondAttribute="trailing" id="TkB-Zc-7L4"/>
+                            <constraint firstItem="Nwn-It-eMY" firstAttribute="centerX" secondItem="Noa-MU-hU6" secondAttribute="centerX" constant="3.5" id="bMS-S8-fvk"/>
+                            <constraint firstItem="Nwn-It-eMY" firstAttribute="top" secondItem="Noa-MU-hU6" secondAttribute="bottom" constant="8" id="e2g-Ju-cmN"/>
+                            <constraint firstItem="QDX-cr-AOi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="24" id="fCe-ds-T1K"/>
+                            <constraint firstItem="OoL-e0-fCC" firstAttribute="width" secondItem="rfK-dW-Jxk" secondAttribute="width" id="hIx-aZ-Rfs"/>
+                            <constraint firstItem="rfK-dW-Jxk" firstAttribute="leading" secondItem="Nwn-It-eMY" secondAttribute="leading" id="hxm-Yr-Rmk"/>
+                            <constraint firstItem="OoL-e0-fCC" firstAttribute="height" secondItem="rfK-dW-Jxk" secondAttribute="height" id="k2m-h5-Ffq"/>
+                            <constraint firstItem="Noa-MU-hU6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="onx-ac-jDj"/>
+                            <constraint firstItem="OoL-e0-fCC" firstAttribute="bottom" secondItem="rfK-dW-Jxk" secondAttribute="bottom" id="rF5-3j-jTX"/>
+                            <constraint firstItem="Noa-MU-hU6" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="tkm-j2-83o"/>
+                            <constraint firstItem="rfK-dW-Jxk" firstAttribute="top" secondItem="Nwn-It-eMY" secondAttribute="bottom" constant="8" id="ugT-aN-MC3"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="awesomenessImageView" destination="QDX-cr-AOi" id="Cv0-F1-09L"/>
+                        <outlet property="awesomenessLabel" destination="Nwn-It-eMY" id="A8h-U0-DBD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="myImage" width="1024" height="1024"/>
+    </resources>
 </document>
