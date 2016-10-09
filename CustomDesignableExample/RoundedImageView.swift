@@ -10,26 +10,26 @@ import UIKit
 
 private let kRoundedImageStartingAngle = -90.0
 
-@IBDesignable public class RoundedImageView: UIView {
+@IBDesignable open class RoundedImageView: UIView {
 
     // inspectable properties
-    @IBInspectable public var image: UIImage? = nil
-    @IBInspectable public var strokeColor: UIColor = UIColor.blackColor()
-    @IBInspectable public var strokeWidth: CGFloat = 20.0
-    @IBInspectable public var completed: Double = 0.20 {
-        willSet { self.willChangeValueForKey("completed") }
+    @IBInspectable open var image: UIImage? = nil
+    @IBInspectable open var strokeColor: UIColor = UIColor.black
+    @IBInspectable open var strokeWidth: CGFloat = 20.0
+    @IBInspectable open var completed: Double = 0.20 {
+        willSet { self.willChangeValue(forKey: "completed") }
         didSet {
             if completed < 0.0 { completed = 0.0 }
             if completed > 1.0 { completed = 1.0 }
-            self.didChangeValueForKey("completed")
+            self.didChangeValue(forKey: "completed")
             setNeedsDisplay()
         }
     }
     
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
-    override public func drawRect(rect: CGRect) {
-        super.drawRect(rect)
+    override open func draw(_ rect: CGRect) {
+        super.draw(rect)
         
         // draw the image (if any)
         if image != nil {
@@ -39,13 +39,13 @@ private let kRoundedImageStartingAngle = -90.0
             clippingPath.addClip()
             
             // custom drawing: 2. Draw the image.
-            image!.drawInRect(rect)
+            image!.draw(in: rect)
         }
     
         // custom drawing: 3. Add the stroke.
         if strokeWidth > 0.0 {
-            let radius = max(CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds)) / 2.0
-            let strokePath = UIBezierPath(arcCenter: CGPoint(x: CGRectGetMidX(self.bounds), y: CGRectGetMidY(self.bounds)), radius: radius, startAngle: CGFloat(degreesToRadians(kRoundedImageStartingAngle)), endAngle: CGFloat(degreesToRadians(-90.0 + 360.0 * completed)), clockwise: true)
+            let radius = max(self.bounds.width, self.bounds.height) / 2.0
+            let strokePath = UIBezierPath(arcCenter: CGPoint(x: self.bounds.midX, y: self.bounds.midY), radius: radius, startAngle: CGFloat(degreesToRadians(kRoundedImageStartingAngle)), endAngle: CGFloat(degreesToRadians(-90.0 + 360.0 * completed)), clockwise: true)
             strokePath.lineWidth = strokeWidth
             strokeColor.setStroke()
             strokePath.stroke()

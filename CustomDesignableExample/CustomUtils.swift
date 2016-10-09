@@ -8,10 +8,10 @@
 
 import UIKit
 
-func degreesToRadians (value:Double) -> Double {
+func degreesToRadians (_ value:Double) -> Double {
     return value * Double(M_PI) / 180.0
 }
 
-func radiansToDegrees (value:Double) -> Double {
+func radiansToDegrees (_ value:Double) -> Double {
     return value * 180.0 / Double(M_PI)
 }
